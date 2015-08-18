@@ -45,7 +45,7 @@ public class PointOfNoReturnCallback implements MqttCallback{
                pointOfNoReturnInfo.setCurrentLat(latitude);
                boolean error =pointOfNoReturnInfo.checkForPointOfNoReturn();
                if (error){
-                   new PublishThread(client,carID+"/message","You are close to the point of no return, please return to your charging station.").start();
+                   new PublishThread(client,carID+"/message","message;messageText:You are close to the point of no return, please return to your charging station.").start();
                }
            }
            else{
@@ -95,7 +95,7 @@ public class PointOfNoReturnCallback implements MqttCallback{
            clientToInfo.get(carID).setDistanceLeft(distanceLeft);
            boolean error = clientToInfo.get(carID).checkForPointOfNoReturn();
            if (error){
-               new PublishThread(client,carID+"/message","You are close to the point of no return, please return to your charging station.").start();
+               new PublishThread(client,carID+"/message","message;messageText:You are close to the point of no return, please return to your charging station.").start();
            }
 
        }
